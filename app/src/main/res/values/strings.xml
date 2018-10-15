@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">architecture</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_mvp_main">MvpMainActivity</string>
+    <string name="title_activity_mvvm_main">MvvmMainActivity</string>
+    <string name="title_activity_mvvm_db_main">MvvmDbMainActivity</string>
+    <string name="title_activity_ribs_main">RibsMainActivity</string>
+</resources>
