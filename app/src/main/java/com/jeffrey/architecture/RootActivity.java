@@ -10,6 +10,7 @@ import com.jeffrey.architecture.mvp.MvpMainActivity;
 import com.jeffrey.architecture.mvvm.MvvmMainActivity;
 import com.jeffrey.architecture.mvvm_db.MvvmDbMainActivity;
 import com.jeffrey.architecture.ribs.RibsMainActivity;
+import com.jeffrey.architecture.viper.ViperMainActivity;
 
 public class RootActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -29,6 +30,9 @@ public class RootActivity extends AppCompatActivity implements View.OnClickListe
 
         Button btnRibs = findViewById(R.id.btn_ribs);
         btnRibs.setOnClickListener(this);
+
+        Button btnViper = findViewById(R.id.btn_viper);
+        btnViper.setOnClickListener(this);
     }
 
     private void navigateTo(Class<?> cls) {
@@ -47,6 +51,9 @@ public class RootActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_mvvm_db:
                 navigateTo(MvvmDbMainActivity.class);
+                break;
+            case R.id.btn_viper:
+                navigateTo(ViperMainActivity.class);
                 break;
             case R.id.btn_ribs:
                 navigateTo(RibsMainActivity.class);

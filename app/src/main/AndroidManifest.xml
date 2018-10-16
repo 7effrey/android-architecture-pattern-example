@@ -25,8 +25,14 @@
             android:label="@string/title_activity_mvvm_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ribs.RibsMainActivity" />
-        <activity android:name=".mvvm_db.MvvmDbMainActivity" />
-        <activity android:name=".viper.ViperMainActivity"></activity>
+        <activity
+            android:name=".mvvm_db.MvvmDbMainActivity"
+            android:label="@string/title_activity_mvvm_db_main"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".viper.ViperMainActivity"
+            android:label="@string/title_activity_viper_main"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
