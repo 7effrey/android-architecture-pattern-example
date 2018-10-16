@@ -1,7 +1,7 @@
 package com.jeffrey.architecture.mvvm_db;
 
 import android.databinding.ObservableField;
-import android.util.Log;
+import android.support.annotation.VisibleForTesting;
 
 import com.jeffrey.architecture.model.Calculator;
 
@@ -64,7 +64,8 @@ public class MvvmDbMainViewModel implements MvvmDbMainContract.ViewModel {
         }
     }
 
-    private void clear() {
+    @VisibleForTesting
+    protected void clear() {
         result.set("");
         error.set("");
     }
