@@ -25,7 +25,7 @@ public class MvvmArchMainViewModel extends ViewModel implements MvvmArchMainCont
     }
 
     @Override
-    public MutableLiveData<String> getError() {
+    public LiveData<String> getError() {
         return error;
     }
 
