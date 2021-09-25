@@ -1,19 +1,18 @@
 package com.jeffrey.architecture.ribs;
 
 import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.util.Pair;
-import android.util.AttributeSet;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.jakewharton.rxbinding2.view.RxView;
 import com.jeffrey.architecture.R;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.Function;
 
 /**
  * Top level view for {@link RibsMainBuilder.RibsMainScope}.
@@ -49,23 +48,13 @@ public class RibsMainView extends CoordinatorLayout implements RibsMainInteracto
   @Override
   public Observable<Pair<String, String>> calculatePlus() {
     return RxView.clicks(findViewById(R.id.btn_plus))
-            .map(new Function<Object, Pair<String,String>>() {
-              @Override
-              public Pair<String, String> apply(Object o) throws Exception {
-                return new Pair<>(etNum1.getText().toString(), etNum2.getText().toString());
-              }
-            });
+            .map(o -> new Pair<>(etNum1.getText().toString(), etNum2.getText().toString()));
   }
 
   @Override
   public Observable<Pair<String, String>> calculateMinus() {
     return RxView.clicks(findViewById(R.id.btn_minus))
-            .map(new Function<Object, Pair<String,String>>() {
-              @Override
-              public Pair<String, String> apply(Object o) throws Exception {
-                return new Pair<>(etNum1.getText().toString(), etNum2.getText().toString());
-              }
-            });
+            .map(o -> new Pair<>(etNum1.getText().toString(), etNum2.getText().toString()));
   }
 
   @Override

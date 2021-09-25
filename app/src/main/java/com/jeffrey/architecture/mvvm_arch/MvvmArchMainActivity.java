@@ -1,10 +1,8 @@
 package com.jeffrey.architecture.mvvm_arch;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.jeffrey.architecture.databinding.ActivityMainBinding;
@@ -32,42 +30,29 @@ public class MvvmArchMainActivity extends AppCompatActivity {
     }
 
     private void bindLiveData() {
-        viewModel.getResult().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                binding.main.etResult.setText(s);
-            }
-        });
+        viewModel.getResult().observe(this, result -> binding.main.etResult.setText(result));
 
-        viewModel.getError().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                binding.main.tvError.setText(s);
-            }
-        });
+        viewModel.getError().observe(this, error -> binding.main.tvError.setText(error));
 
-        viewModel.getClear().observe(this, new Observer<Void>() {
-            @Override
-            public void onChanged(Void v) {
-                binding.main.tvError.setText("");
-                binding.main.etResult.setText("");
-            }
+        viewModel.getClear().observe(this, v -> {
+            binding.main.tvError.setText("");
+            binding.main.etResult.setText("");
         });
     }
 
     private void setEvent() {
-        binding.main.btnPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewModel.calculatePlus(binding.main.etNum1.getText().toString(), binding.main.etNum2.getText().toString());
-            }
-        });
+        binding.main.btnPlus.setOnClickListener(view ->
+                viewModel.calculatePlus(
+                        binding.main.etNum1.getText().toString(),
+                        binding.main.etNum2.getText().toString()
+                )
+        );
 
-        binding.main.btnMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewModel.calculateMinus(binding.main.etNum1.getText().toString(), binding.main.etNum2.getText().toString());
-            }
-        });
+        binding.main.btnMinus.setOnClickListener(view ->
+                viewModel.calculateMinus(
+                        binding.main.etNum1.getText().toString(),
+                        binding.main.etNum2.getText().toString()
+                )
+        );
     }
 }

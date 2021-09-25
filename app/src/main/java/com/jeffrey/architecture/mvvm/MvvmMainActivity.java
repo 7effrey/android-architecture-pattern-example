@@ -1,7 +1,6 @@
 package com.jeffrey.architecture.mvvm;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,7 +15,6 @@ import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class MvvmMainActivity extends AppCompatActivity {
@@ -52,20 +50,14 @@ public class MvvmMainActivity extends AppCompatActivity {
 
     private void setListener() {
         Button btnPlus = findViewById(R.id.btn_plus);
-        btnPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewModel.calculatePlus(etNum1.getText().toString(), etNum2.getText().toString());
-            }
-        });
+        btnPlus.setOnClickListener(view ->
+                viewModel.calculatePlus(etNum1.getText().toString(), etNum2.getText().toString())
+        );
 
         Button btnMinus = findViewById(R.id.btn_minus);
-        btnMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewModel.calculateMinus(etNum1.getText().toString(), etNum2.getText().toString());
-            }
-        });
+        btnMinus.setOnClickListener(view ->
+                viewModel.calculateMinus(etNum1.getText().toString(), etNum2.getText().toString())
+        );
     }
 
     @Override
@@ -76,28 +68,15 @@ public class MvvmMainActivity extends AppCompatActivity {
         Disposable disposable = viewModel.getShowResult()
                 .subscribeOn(getIoScheduler())
                 .observeOn(getUiScheduler())
-                .subscribe(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer integer) throws Exception {
-                        etResult.setText(integer.toString());
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        tvError.setText(throwable.getMessage());
-                    }
-                });
+                .subscribe(integer -> etResult.setText(integer.toString()), throwable -> tvError.setText(throwable.getMessage()));
         compositeDisposable.add(disposable);
 
         viewModel.getClear()
                 .subscribeOn(getIoScheduler())
                 .observeOn(getUiScheduler())
-                .subscribe(new Consumer() {
-                    @Override
-                    public void accept(Object o) throws Exception {
-                        etResult.setText("");
-                        tvError.setText("");
-                    }
+                .subscribe(o -> {
+                    etResult.setText("");
+                    tvError.setText("");
                 });
         compositeDisposable.add(disposable);
     }

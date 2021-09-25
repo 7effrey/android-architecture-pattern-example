@@ -11,7 +11,6 @@ import com.uber.rib.core.RibInteractor;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.Consumer;
 
 /**
  * Coordinates Business Logic for {@link RibsMainBuilder.RibsMainScope}.
@@ -30,30 +29,24 @@ public class RibsMainInteractor
     super.didBecomeActive(savedInstanceState);
 
     presenter.calculatePlus()
-            .subscribe(new Consumer<Pair<String, String>>() {
-              @Override
-              public void accept(Pair<String, String> pair) throws Exception {
-                presenter.clear();
-                try {
-                  calculator.setNumbers(pair.first, pair.second);
-                  presenter.showResult(calculator.calculatePlus());
-                } catch (NumberFormatException nfe) {
-                  presenter.showError(nfe.getMessage());
-                }
+            .subscribe(pair -> {
+              presenter.clear();
+              try {
+                calculator.setNumbers(pair.first, pair.second);
+                presenter.showResult(calculator.calculatePlus());
+              } catch (NumberFormatException nfe) {
+                presenter.showError(nfe.getMessage());
               }
             });
 
     presenter.calculateMinus()
-            .subscribe(new Consumer<Pair<String, String>>() {
-              @Override
-              public void accept(Pair<String, String> pair) throws Exception {
-                presenter.clear();
-                try {
-                  calculator.setNumbers(pair.first, pair.second);
-                  presenter.showResult(calculator.calculateMinus());
-                } catch (NumberFormatException nfe) {
-                  presenter.showError(nfe.getMessage());
-                }
+            .subscribe(pair -> {
+              presenter.clear();
+              try {
+                calculator.setNumbers(pair.first, pair.second);
+                presenter.showResult(calculator.calculateMinus());
+              } catch (NumberFormatException nfe) {
+                presenter.showError(nfe.getMessage());
               }
             });
   }

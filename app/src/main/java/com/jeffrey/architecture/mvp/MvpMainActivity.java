@@ -2,7 +2,6 @@ package com.jeffrey.architecture.mvp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,19 +32,19 @@ public class MvpMainActivity extends AppCompatActivity implements MvpMainContrac
     }
 
     private void setListener() {
-        binding.main.btnPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.calculatePlus(binding.main.etNum1.getText().toString(), binding.main.etNum2.getText().toString());
-            }
-        });
+        binding.main.btnPlus.setOnClickListener(view ->
+                presenter.calculatePlus(
+                        binding.main.etNum1.getText().toString(),
+                        binding.main.etNum2.getText().toString()
+                )
+        );
 
-        binding.main.btnMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.calculateMinus(binding.main.etNum1.getText().toString(), binding.main.etNum2.getText().toString());
-            }
-        });
+        binding.main.btnMinus.setOnClickListener(view ->
+                presenter.calculateMinus(
+                        binding.main.etNum1.getText().toString(),
+                        binding.main.etNum2.getText().toString()
+                )
+        );
     }
 
     @Override

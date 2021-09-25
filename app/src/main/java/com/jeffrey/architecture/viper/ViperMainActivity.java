@@ -1,7 +1,6 @@
 package com.jeffrey.architecture.viper;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -46,20 +45,14 @@ public class ViperMainActivity extends AppCompatActivity implements ViperMainCon
 
     private void setListener() {
         Button btnPlus = findViewById(R.id.btn_plus);
-        btnPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.onPlusButtonClicked(etNum1.getText().toString(), etNum2.getText().toString());
-            }
-        });
+        btnPlus.setOnClickListener(view ->
+                presenter.onPlusButtonClicked(etNum1.getText().toString(), etNum2.getText().toString())
+        );
 
         Button btnMinus = findViewById(R.id.btn_minus);
-        btnMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.onMinusButtonClicked(etNum1.getText().toString(), etNum2.getText().toString());
-            }
-        });
+        btnMinus.setOnClickListener(view ->
+                presenter.onMinusButtonClicked(etNum1.getText().toString(), etNum2.getText().toString())
+        );
     }
 
     @Override
