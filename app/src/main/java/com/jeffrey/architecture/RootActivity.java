@@ -1,16 +1,18 @@
 package com.jeffrey.architecture;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 
 import com.jeffrey.architecture.mvp.MvpMainActivity;
 import com.jeffrey.architecture.mvvm.MvvmMainActivity;
 import com.jeffrey.architecture.mvvm_db.MvvmDbMainActivity;
 import com.jeffrey.architecture.ribs.RibsMainActivity;
 import com.jeffrey.architecture.viper.ViperMainActivity;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class RootActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -19,20 +21,16 @@ public class RootActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_root);
 
-        Button btnMvp = findViewById(R.id.btn_mvp);
-        btnMvp.setOnClickListener(this);
-
-        Button btnMvvm = findViewById(R.id.btn_mvvm);
-        btnMvvm.setOnClickListener(this);
-
-        Button btnMvvmDb = findViewById(R.id.btn_mvvm_db);
-        btnMvvmDb.setOnClickListener(this);
-
-        Button btnRibs = findViewById(R.id.btn_ribs);
-        btnRibs.setOnClickListener(this);
-
-        Button btnViper = findViewById(R.id.btn_viper);
-        btnViper.setOnClickListener(this);
+        List<View> buttons = Arrays.asList(
+            findViewById(R.id.btn_mvp),
+            findViewById(R.id.btn_mvvm),
+            findViewById(R.id.btn_mvvm_db),
+            findViewById(R.id.btn_ribs),
+            findViewById(R.id.btn_viper)
+        );
+        for (View button : buttons) {
+            button.setOnClickListener(this);
+        }
     }
 
     private void navigateTo(Class<?> cls) {
