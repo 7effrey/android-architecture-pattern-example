@@ -1,9 +1,10 @@
 package com.jeffrey.architecture.ribs;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.util.Pair;
+
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.util.Pair;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import android.widget.TextView;

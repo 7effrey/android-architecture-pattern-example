@@ -10,7 +10,7 @@
             type="com.jeffrey.architecture.mvvm_db.MvvmDbMainContract.ViewModel" />
     </data>
 
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".mvvm_db.MvvmDbMainActivity">
@@ -105,5 +105,5 @@
 
         </LinearLayout>
 
-    </android.support.design.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

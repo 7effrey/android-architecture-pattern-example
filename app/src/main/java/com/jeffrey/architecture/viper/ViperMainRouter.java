@@ -1,7 +1,8 @@
 package com.jeffrey.architecture.viper;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.jeffrey.architecture.RootActivity;
 

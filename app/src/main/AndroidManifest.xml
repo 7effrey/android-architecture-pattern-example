@@ -26,6 +26,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ribs.RibsMainActivity" />
         <activity
+            android:name=".mvvm_arch.MvvmArchMainActivity"
+            android:label="@string/title_activity_mvvm_arch_main"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
             android:name=".mvvm_db.MvvmDbMainActivity"
             android:label="@string/title_activity_mvvm_db_main"
             android:theme="@style/AppTheme.NoActionBar"/>

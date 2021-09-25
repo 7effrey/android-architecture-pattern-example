@@ -1,6 +1,6 @@
 package com.jeffrey.architecture.mvvm_db;
 
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 
 public interface MvvmDbMainContract {
     interface ViewModel {

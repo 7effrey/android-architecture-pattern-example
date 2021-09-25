@@ -1,7 +1,7 @@
 package com.jeffrey.architecture.mvvm_db;
 
-import android.databinding.ObservableField;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
+import androidx.databinding.ObservableField;
 
 import com.jeffrey.architecture.model.Calculator;
 

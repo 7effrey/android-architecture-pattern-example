@@ -2,11 +2,13 @@ package com.jeffrey.architecture;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.jeffrey.architecture.mvp.MvpMainActivity;
 import com.jeffrey.architecture.mvvm.MvvmMainActivity;
+import com.jeffrey.architecture.mvvm_arch.MvvmArchMainActivity;
 import com.jeffrey.architecture.mvvm_db.MvvmDbMainActivity;
 import com.jeffrey.architecture.ribs.RibsMainActivity;
 import com.jeffrey.architecture.viper.ViperMainActivity;
@@ -24,6 +26,7 @@ public class RootActivity extends AppCompatActivity implements View.OnClickListe
         List<View> buttons = Arrays.asList(
             findViewById(R.id.btn_mvp),
             findViewById(R.id.btn_mvvm),
+            findViewById(R.id.btn_mvvm_arch),
             findViewById(R.id.btn_mvvm_db),
             findViewById(R.id.btn_ribs),
             findViewById(R.id.btn_viper)
@@ -46,6 +49,9 @@ public class RootActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_mvvm:
                 navigateTo(MvvmMainActivity.class);
+                break;
+            case R.id.btn_mvvm_arch:
+                navigateTo(MvvmArchMainActivity.class);
                 break;
             case R.id.btn_mvvm_db:
                 navigateTo(MvvmDbMainActivity.class);

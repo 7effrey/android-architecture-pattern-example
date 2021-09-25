@@ -21,6 +21,12 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/btn_mvvm_arch"
+        android:text="MVVM with Arch Component"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/btn_mvvm_db"
         android:text="MVVM with Data Binding"/>
 

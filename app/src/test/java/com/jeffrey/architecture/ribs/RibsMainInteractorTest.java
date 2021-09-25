@@ -1,6 +1,6 @@
 package com.jeffrey.architecture.ribs;
 
-import android.support.v4.util.Pair;
+import androidx.core.util.Pair;
 
 import com.jeffrey.architecture.model.Calculator;
 import com.uber.rib.core.RibTestBasePlaceholder;
