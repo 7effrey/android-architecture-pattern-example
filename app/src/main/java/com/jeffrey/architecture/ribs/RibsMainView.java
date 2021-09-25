@@ -17,7 +17,7 @@ import io.reactivex.functions.Function;
 /**
  * Top level view for {@link RibsMainBuilder.RibsMainScope}.
  */
-class RibsMainView extends CoordinatorLayout implements RibsMainInteractor.RibsMainPresenter {
+public class RibsMainView extends CoordinatorLayout implements RibsMainInteractor.RibsMainPresenter {
 
   private EditText etNum1;
   private EditText etNum2;
